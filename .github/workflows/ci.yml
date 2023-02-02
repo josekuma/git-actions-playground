@@ -15,6 +15,6 @@ jobs:
       - name: inspect
         run: |
           ls -al
-          whoaim
+          whoami
           pwd
           node -v
