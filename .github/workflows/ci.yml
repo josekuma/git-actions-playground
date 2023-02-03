@@ -26,8 +26,16 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [14.x, 15.x, 16.x]
+
     steps:
       - uses: actions/checkout@v3
+      - name: Setup Node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.nodeversion }}
       - name: build and build-test
         working-directory: ./hangman-api
         run: |
