@@ -1,4 +1,4 @@
-name: CI
+name: Ejercicio1
 
 on:
 
@@ -9,17 +9,6 @@ on:
     paths: ['hangman-api/**']
 
 
-  # audit:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: inspect
-  #       run: |
-  #         ls -al
-  #         whoami
-  #         pwd
-  #         node -v
 jobs:
 
   build:
