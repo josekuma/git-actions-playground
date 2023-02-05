@@ -4,9 +4,7 @@ on:
 
   workflow_dispatch: # Sirve para ejecutar la pipeline mediante un boton en GitHUb Actions
     
-  pull_request: # Esto te viene a decir que cada vez que se hace un pull request en github en la rama main y en el patch de hagman-front, se ejecutará esta pipeline
-    branches: [ main ] 
-    paths: ['hangman-front/**']
+
 
 
 jobs: # Aqui se especifica que se van a ejecutar eun conjunto de jobs
