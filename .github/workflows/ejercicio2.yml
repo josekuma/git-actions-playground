@@ -1,0 +1,40 @@
+name: ejercicio2
+
+on:
+  workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependenct-path: hangman-front/package-lock.json
+      - name: build
+        working-directory: ./hangman-front
+        run: |
+          npm ci
+          npm run build --if-present
+      - uses: actions/upload-atifact@v3
+        with:
+          name: build-code
+          path: hangman-front/dist/
+  
+  delivery:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps: 
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-code
+          path: hangman-front/dist/
+      - name: Build Docker imagen
+        working-directory: ./hangman-front
+        run: docker build --tag my-image-name:$(date +%s) .
+
