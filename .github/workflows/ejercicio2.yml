@@ -26,6 +26,9 @@ jobs:
   
   delivery:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     needs: build
 
     steps: 
@@ -34,8 +37,17 @@ jobs:
         with:
           name: build-code
           path: hangman-front/dist/
-      - name: Build Docker And Push
-        working-directory: ./hangman-front
-        run: docker build --tag my-image-name:$(date +%s) .
+      - uses: mr-smithers-excellent/docker-build-push@v5
+        name: Build Docker And Push
+        with:
+          image: hangman-front
+          tag: $(date +%s)
+          registry: ghcr.io
+          directory: ./hangman-front
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+
+      
 
 
