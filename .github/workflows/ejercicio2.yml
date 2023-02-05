@@ -41,9 +41,9 @@ jobs:
         name: Build Docker And Push
         with:
           image: hangman-front
-          tag: $(date +%s)
+          tags: $(date +%s), latest
           registry: ghcr.io
-          directory: ./hangman-front
+          directory: "./hangman-front"
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
