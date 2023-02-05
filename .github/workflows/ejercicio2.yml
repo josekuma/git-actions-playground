@@ -1,11 +1,8 @@
-name: ejercicio2
+name: Ejercicio2
 
 on:
   workflow_dispatch:
 
-  pull_request: # Esto te viene a decir que cada vez que se hace un pull request en github en la rama main y en el patch de hagman-front, se ejecutará esta pipeline
-    branches: [ main ] 
-    paths: ['hangman-front/**']
 jobs:
   build:
     runs-on: ubuntu-latest
