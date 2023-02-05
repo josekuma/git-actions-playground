@@ -34,6 +34,7 @@ jobs:
     steps: 
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
+
         with:
           name: build-code
           path: hangman-front/dist/
@@ -42,10 +43,10 @@ jobs:
 
         name: Build Docker And Push
         with:
-          working-directory: ./hangman-front
           image: hangman-front
           tags: $(date +%s), latest
           registry: ghcr.io
+          dockerfile: ./hangman-front/Dockerfile
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
