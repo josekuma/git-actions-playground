@@ -47,6 +47,7 @@ jobs:
           tags: $(date +%s), latest
           registry: ghcr.io
           dockerfile: ./hangman-front/Dockerfile
+          directory: ./hangman-front/
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
