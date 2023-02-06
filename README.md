@@ -11,7 +11,7 @@
     7) Por ultimo se verá si todos los jobs se han ejecutado con satifsaccion.
     8) En mi caso el de "test" fallaba, pero era porque el codigo en si fallaba.
 
-        [![Screenshot-from-2023-02-06-13-54-52.png](https://i.postimg.cc/rFSjYNXp/Screenshot-from-2023-02-06-13-54-52.png)](https://postimg.cc/2VSn1v5p)
+[![Screenshot-from-2023-02-06-13-54-52.png](https://i.postimg.cc/rFSjYNXp/Screenshot-from-2023-02-06-13-54-52.png)](https://postimg.cc/2VSn1v5p)
 
 ## Ejercicio 2
 
@@ -23,11 +23,8 @@
     5) Se sube el fichero al repositorio con un commit-push
     6) Se ejecuta la pipeline de la misma manera que el ejercicio anterior y una vez que se completen todos los pasos con éxito se va a packages en nuestro perfi home de github y se comprueba que el container se ha creado y subido correctamente.
     
-    [![Screenshot-from-2023-02-06-14-14-35.png](https://i.postimg.cc/qR5yzgPS/Screenshot-from-2023-02-06-14-14-35.png)](https://postimg.cc/dkGLfQtj)
+[![Screenshot-from-2023-02-06-14-14-35.png](https://i.postimg.cc/qR5yzgPS/Screenshot-from-2023-02-06-14-14-35.png)](https://postimg.cc/dkGLfQtj)
 
-    
-    ### Enlace a Github package del container que se creó
-    
-    https://github.com/josekuma/git-actions-playground/pkgs/container/hangman-front
+[Para ver el container](https://github.com/josekuma/git-actions-playground/pkgs/container/hangman-front)
 
 
