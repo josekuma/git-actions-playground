@@ -1,11 +1,11 @@
 name: Ejercicio2
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: #Te dice que esta pipe se ejecuta solo cuando nosotros le demos a un botón
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
 
     steps:
       - uses: actions/checkout@v3
@@ -24,32 +24,32 @@ jobs:
           name: build-code
           path: hangman-front/dist/
   
-  delivery:
+  delivery: #Esta es la unica fase que es distinta de la anterior y es que crea y pushea una imagen de docker de la app hacia el container registry de github
     runs-on: ubuntu-latest
-    permissions:
+    permissions: #Aqui se da permisos para poder llevar a acabo dicha tarea
       contents: read
       packages: write
     needs: build
 
     steps: 
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - uses: actions/checkout@v3 #Se mete el repo dentro de la imagen de ubuntu
+      - uses: actions/download-artifact@v3 #Se descargan los artifactos creados anteriormente
 
         with:
           name: build-code
           path: hangman-front/dist/
-      - uses: mr-smithers-excellent/docker-build-push@v5
+      - uses: mr-smithers-excellent/docker-build-push@v5 #Se usua esta action para hacer build y push de la aplicacion
 
 
         name: Build Docker And Push
         with:
-          image: hangman-front
-          tags: $(date +%s), latest
-          registry: ghcr.io
-          dockerfile: ./hangman-front/Dockerfile
-          directory: ./hangman-front/
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          image: hangman-front #Nombre de la iamgen
+          tags: $(date +%s), latest  #tag de la imagen
+          registry: ghcr.io #Nombre del registro, que en este caso es el de github
+          dockerfile: ./hangman-front/Dockerfile #Ruta del Dockerfile
+          directory: ./hangman-front/ #Ruta del la app
+          username: ${{ github.actor }} #usuario del Github
+          password: ${{ secrets.GITHUB_TOKEN }} #EL personal token creado en Developer Settings
 
 
       
