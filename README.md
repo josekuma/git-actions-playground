@@ -23,8 +23,8 @@
     5) Se sube el fichero al repositorio con un commit-push
     6) Se ejecuta la pipeline de la misma manera que el ejercicio anterior y una vez que se completen todos los pasos con éxito se va a packages en nuestro perfi home de github y se comprueba que el container se ha creado y subido correctamente.
     
-    `![Ejercicio2_completado(https://imgur.com/UH8j5E3)]`
-    
+    ![Ejercicio2_completado](https://imgur.com/UH8j5E3)
+
     [Para ver el container](https://github.com/josekuma/git-actions-playground/pkgs/container/hangman-front)
 
 
